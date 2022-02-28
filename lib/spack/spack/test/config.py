@@ -338,7 +338,7 @@ def test_substitute_config_variables(mock_low_high_config, monkeypatch):
     prefix = spack.paths.prefix.lstrip('/').lstrip('C:\\')
 
     assert os.path.join(
-        os.sep + os.path.join('foo','bar','baz'), prefix
+        os.sep + os.path.join('foo', 'bar', 'baz'), prefix
     ) == spack_path.canonicalize_path('/foo/bar/baz/$spack')
 
     assert os.path.join(

@@ -4619,8 +4619,8 @@ class SpecLexer(spack.parse.Lexer):
     """Parses tokens that make up spack specs."""
 
     def __init__(self):
-        # posixpath on Windows here because this string will be fed through
-        # shlex
+        # Spec strings require posix-style paths on Windows
+        # because the result is later passed to shlex
         filename_reg = r'[/\w.-]*/[/\w/-]+\.(yaml|json)[^\b]*' if not is_windows\
             else r'([A-Za-z]:)*?[/\w.-]*/[/\w/-]+\.(yaml|json)[^\b]*'
         super(SpecLexer, self).__init__([

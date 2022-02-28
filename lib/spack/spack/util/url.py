@@ -18,6 +18,8 @@ from six import string_types
 
 from spack.util.path import canonicalize_path, convert_to_posix_path
 
+is_windows = sys.platform == 'win32'
+
 
 def _split_all(path):
     """Split path into its atomic components.
@@ -75,7 +77,6 @@ def parse(url, scheme='file'):
     allow_fragments=False.
     """
 
-    require_url_format(url)
     url_obj = (
         urllib_parse.urlparse(url, scheme=scheme, allow_fragments=False)
         if isinstance(url, string_types) else url)
